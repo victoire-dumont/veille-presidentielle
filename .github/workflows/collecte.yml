@@ -1,0 +1,29 @@
+name: Collecte RSS
+
+# Exécution toutes les heures + possibilité de lancer manuellement
+on:
+  schedule:
+    - cron: "0 * * * *"   # toutes les heures, à la minute 0
+  workflow_dispatch:        # bouton "Run workflow" dans GitHub
+
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Lancer la collecte
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: python collect.py

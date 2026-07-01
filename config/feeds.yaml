@@ -1,0 +1,29 @@
+# =============================================================
+# Flux RSS à surveiller
+# =============================================================
+# Pour ajouter un flux : copie un bloc existant et modifie-le.
+# "nom" = le nom du média tel qu'il apparaîtra dans la base.
+# "url" = l'adresse du flux RSS.
+# "actif" = true/false pour activer/désactiver sans supprimer.
+# =============================================================
+
+feeds:
+  - nom: "Le Monde"
+    url: "https://www.lemonde.fr/politique/rss_full.xml"
+    actif: true
+
+  - nom: "Le Figaro"
+    url: "https://www.lefigaro.fr/rss/figaro_politique.xml"
+    actif: true
+
+  - nom: "France Info"
+    url: "https://www.franceinfo.fr/politique.rss"
+    actif: true
+
+  - nom: "Libération"
+    url: "https://www.liberation.fr/arc/outboundfeeds/rss/category/politique/?outputType=xml"
+    actif: true
+
+  - nom: "France Inter"
+    url: "https://www.radiofrance.fr/franceinter/rss"
+    actif: true
