@@ -4,662 +4,712 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veille Presidentielle 2027</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-
-  <!-- Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
   <style>
-    /* ── Reset & Base ─────────────────────────────── */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ══════════════════════════════════════════════
+       EC2027 Design System — Tokens
+       ══════════════════════════════════════════════ */
+    @font-face { font-family: "Space Grotesk"; font-weight: 300; font-style: normal; font-display: swap; src: url("assets/fonts/SpaceGrotesk-Light.ttf") format("truetype"); }
+    @font-face { font-family: "Space Grotesk"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype"); }
+    @font-face { font-family: "Space Grotesk"; font-weight: 500; font-style: normal; font-display: swap; src: url("assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype"); }
+    @font-face { font-family: "Space Grotesk"; font-weight: 600; font-style: normal; font-display: swap; src: url("assets/fonts/SpaceGrotesk-SemiBold.ttf") format("truetype"); }
+    @font-face { font-family: "Space Grotesk"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+    @font-face { font-family: "Switzer"; font-weight: 300; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Light.woff2") format("woff2"); }
+    @font-face { font-family: "Switzer"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Regular.woff2") format("woff2"); }
+    @font-face { font-family: "Switzer"; font-weight: 500; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Medium.woff2") format("woff2"); }
+    @font-face { font-family: "Switzer"; font-weight: 600; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Semibold.woff2") format("woff2"); }
+    @font-face { font-family: "Switzer"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Bold.woff2") format("woff2"); }
+    @font-face { font-family: "Switzer"; font-weight: 800; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Extrabold.woff2") format("woff2"); }
 
     :root {
-      --cream: #FAF9F5;
-      --ink: #1A1A1A;
-      --ink-light: #4A4A4A;
-      --ink-muted: #8A8A8A;
-      --rule: #D4D0C8;
-      --rule-dark: #1A1A1A;
-      --bleu: #002654;
-      --rouge: #CE1126;
-      --accent: #B8860B;
-      --bg-card: #FFFFFF;
-      --bg-filter: #F0EFE9;
-      --shadow: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-hover: 0 4px 16px rgba(0,0,0,0.10);
-      --radius: 2px;
+      --ec-rose: #fa56c1; --ec-heliotrope: #c17cff; --ec-mandarine: #f4983d;
+      --ec-mandarine-electrique: #fa6e28; --ec-midnight: #00525e;
+      --ec-chartreuse: #d0f230; --ec-indigo: #603aff;
+      --ec-albatre: #f4f4eb; --ec-charbon: #1d1d1d; --ec-gris: #6b6b6b; --ec-white: #ffffff;
+      --ec-rose-soft: #fde4f4; --ec-heliotrope-soft: #efe4ff; --ec-mandarine-soft: #fdecdb;
+      --ec-midnight-soft: #d5e6e8; --ec-chartreuse-soft: #f2fcc9; --ec-indigo-soft: #e5deff;
+      --surface-page: var(--ec-albatre); --surface-card: var(--ec-white);
+      --text-strong: var(--ec-charbon); --text-body: var(--ec-charbon);
+      --text-muted: var(--ec-gris); --text-link: var(--ec-indigo); --border-subtle: #e3e3d8;
+      --font-display: "Space Grotesk", system-ui, sans-serif;
+      --font-text: "Switzer", system-ui, sans-serif;
+      --radius-sm: 10px; --radius-md: 14px; --radius-lg: 20px; --radius-pill: 999px;
+      --shadow-sm: 0 2px 8px rgba(29,29,29,0.06); --shadow-md: 0 8px 24px rgba(29,29,29,0.08);
+      --ease-standard: cubic-bezier(0.2,0,0,1); --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --dur-base: 200ms; --container-max: 1200px; --gutter: 24px;
     }
 
-    html { font-size: 16px; }
+    /* ── Base ─────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; color-scheme: light; }
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      font-family: var(--font-text); background: var(--surface-page);
+      color: var(--text-body); line-height: 1.55;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    ::selection { background: var(--ec-chartreuse); color: var(--ec-charbon); }
+    a { color: var(--text-link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* ══════════════════════════════════════════════
+       Header — compact
+       ══════════════════════════════════════════════ */
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; border-bottom: 1.5px solid var(--border-subtle);
+    }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .header-logo { width: 36px; height: 36px; }
+    .header-title {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; font-size: 18px; color: var(--text-strong); line-height: 1.1;
+    }
+    .header-title span {
+      font-weight: 300; text-transform: none; font-size: 13px;
+      color: var(--text-muted); display: block; letter-spacing: 0;
     }
 
-    /* ── Textures ─────────────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='4' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='%23000' opacity='0.015'/%3E%3C/svg%3E") repeat;
-      pointer-events: none;
-      z-index: 9999;
+    /* Countdown */
+    .countdown {
+      font-family: var(--font-display); font-weight: 700; font-size: 18px;
+      color: var(--ec-indigo); background: var(--ec-indigo-soft);
+      border-radius: var(--radius-sm); padding: 6px 14px; letter-spacing: -0.01em;
     }
 
-    /* ── Header ───────────────────────────────────── */
-    header {
-      border-bottom: 3px double var(--rule-dark);
-      padding: 2rem 0 1.5rem;
-      text-align: center;
-      position: relative;
+    /* ══════════════════════════════════════════════
+       Sections
+       ══════════════════════════════════════════════ */
+    .barometre-section { padding: 24px 0 32px; }
+    .feed-section { padding: 0 0 24px; }
+
+    /* Toggle EC */
+    .ec-toggle {
+      display: inline-flex; border-radius: var(--radius-pill); overflow: hidden;
+      border: 1.5px solid var(--border-subtle); background: var(--surface-card);
     }
-    header::before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--bleu) 33%, var(--cream) 33%, var(--cream) 66%, var(--rouge) 66%);
-      margin-bottom: 1.5rem;
+    .ec-toggle-btn {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.03em; font-size: 12px; line-height: 1;
+      padding: 9px 18px; border: none; background: transparent;
+      color: var(--text-muted); cursor: pointer;
+      transition: all var(--dur-base) var(--ease-standard);
+    }
+    .ec-toggle-btn:hover { color: var(--text-strong); }
+    .ec-toggle-btn.active {
+      background: var(--ec-charbon); color: var(--ec-albatre);
+    }
+    .ec-toggle-btn.active-ec {
+      background: var(--ec-chartreuse); color: var(--ec-charbon);
     }
 
-    .header-date {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    h1 {
-      font-family: 'Instrument Serif', serif;
-      font-weight: 400;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-    }
-
-    .header-subtitle {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      margin-top: 0.5rem;
-      font-style: italic;
-      font-weight: 300;
-    }
-
-    /* ── Container ────────────────────────────────── */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ── Stats bar ────────────────────────────────── */
+    /* ══════════════════════════════════════════════
+       Stats bar
+       ══════════════════════════════════════════════ */
     .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      padding: 1.2rem 0;
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 1.5rem;
+      display: flex; justify-content: flex-start; gap: 40px;
+      padding: 20px 0; margin-bottom: 8px;
     }
-
-    .stat {
-      text-align: center;
-    }
+    .stat { text-align: center; }
     .stat-value {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.8rem;
-      color: var(--ink);
-      line-height: 1;
+      font-family: var(--font-display); font-weight: 700; font-size: 28px;
+      line-height: 1; letter-spacing: -0.01em; color: var(--text-strong);
     }
     .stat-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-top: 0.2rem;
+      font-family: var(--font-text); font-size: 12px; color: var(--text-muted); margin-top: 4px;
     }
 
-    /* ── Filters ──────────────────────────────────── */
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      padding: 1rem 0;
-      margin-bottom: 1rem;
-      align-items: center;
-    }
+    /* ══════════════════════════════════════════════
+       Filters — Feed
+       ══════════════════════════════════════════════ */
+    .filters-section { padding: 0 0 20px; }
 
-    .filter-group {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+    .filter-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
     }
+    .filter-row:last-child { margin-bottom: 0; }
 
     .filter-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      white-space: nowrap;
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; font-size: 10px; color: var(--text-muted);
+      white-space: nowrap; min-width: 60px;
     }
+
+    /* Candidat pills */
+    .pill-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .pill-filter {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.03em; font-size: 11px; line-height: 1;
+      padding: 7px 14px; border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-subtle); background: var(--surface-card);
+      color: var(--text-strong); cursor: pointer; box-shadow: var(--shadow-sm);
+      transition: all var(--dur-base) var(--ease-standard);
+    }
+    .pill-filter:hover { border-color: var(--ec-charbon); box-shadow: var(--shadow-md); }
+    .pill-filter.active { background: var(--ec-charbon); color: var(--ec-albatre); border-color: var(--ec-charbon); }
+    /* Colored active states */
+    .pill-filter[data-tone="indigo"].active { background: var(--ec-indigo); border-color: var(--ec-indigo); color: #fff; }
+    .pill-filter[data-tone="rose"].active { background: var(--ec-rose); border-color: var(--ec-rose); color: #fff; }
+    .pill-filter[data-tone="midnight"].active { background: var(--ec-midnight); border-color: var(--ec-midnight); color: #fff; }
+    .pill-filter[data-tone="mandarine"].active { background: var(--ec-mandarine); border-color: var(--ec-mandarine); color: #fff; }
+    .pill-filter[data-tone="heliotrope"].active { background: var(--ec-heliotrope); border-color: var(--ec-heliotrope); color: #fff; }
+    .pill-filter[data-tone="chartreuse"].active { background: var(--ec-chartreuse); border-color: var(--ec-chartreuse); color: var(--ec-charbon); }
+    .pill-filter[data-tone="charbon"].active { background: var(--ec-charbon); border-color: var(--ec-charbon); color: var(--ec-albatre); }
 
     select, .search-input {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem;
-      padding: 0.4rem 0.7rem;
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      background: var(--bg-card);
-      color: var(--ink);
-      cursor: pointer;
-      transition: border-color 0.2s;
+      font-family: var(--font-text); font-size: 13px; font-weight: 400;
+      padding: 7px 12px; border: none; border-bottom: 1px solid var(--border-subtle);
+      border-radius: 0; background: transparent;
+      color: var(--text-muted); cursor: pointer;
+      transition: border-color var(--dur-base) var(--ease-standard);
     }
     select:focus, .search-input:focus {
-      outline: none;
-      border-color: var(--ink-muted);
+      outline: 2px solid var(--ec-indigo); outline-offset: 2px; border-color: var(--ec-indigo);
     }
-    .search-input {
-      width: 200px;
-    }
-    .search-input::placeholder {
-      color: var(--ink-muted);
-      font-style: italic;
-    }
+    .search-input { width: 200px; }
+    .search-input::placeholder { color: var(--text-muted); font-weight: 300; }
 
-    .filter-right {
-      margin-left: auto;
+    /* ══════════════════════════════════════════════
+       Section header
+       ══════════════════════════════════════════════ */
+    .section-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-bottom: 12px; border-bottom: 2px solid var(--ec-charbon);
     }
+    .section-title {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; font-size: 18px; line-height: 1.1; color: var(--text-strong);
+    }
+    .section-count { font-family: var(--font-text); font-size: 13px; color: var(--text-muted); }
 
-    /* ── Article list ─────────────────────────────── */
-    .articles-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--rule-dark);
-      margin-bottom: 0;
-    }
-    .articles-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-    }
-    .articles-count {
-      font-size: 0.75rem;
-      color: var(--ink-muted);
-    }
+    /* ══════════════════════════════════════════════
+       Article cards
+       ══════════════════════════════════════════════ */
+    .article-list { list-style: none; display: flex; flex-direction: column; gap: 10px; padding-top: 16px; }
 
-    .article-list {
-      list-style: none;
+    .article-card {
+      display: grid; grid-template-columns: 100px 1fr; gap: 16px;
+      padding: 20px; background: var(--surface-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-out);
+      text-decoration: none; color: inherit;
     }
+    .article-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); text-decoration: none; }
 
-    .article-item {
-      display: grid;
-      grid-template-columns: 7.5rem 1fr;
-      gap: 1.2rem;
-      padding: 1.2rem 0;
-      border-bottom: 1px solid var(--rule);
-      transition: background 0.2s;
-      text-decoration: none;
-      color: inherit;
-    }
-    .article-item:hover {
-      background: rgba(0,0,0,0.015);
-    }
-
-    .article-meta {
-      padding-top: 0.15rem;
-    }
-    .article-date {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      line-height: 1.4;
-    }
+    .article-date { font-family: var(--font-text); font-size: 13px; color: var(--text-muted); line-height: 1.4; }
     .article-source {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-top: 0.3rem;
+      font-family: var(--font-display); font-weight: 700; font-size: 10px;
+      letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px;
     }
+    .article-body { display: flex; flex-direction: column; gap: 6px; }
+    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 
-    .article-body {}
-    .article-candidat {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--bleu);
-      margin-bottom: 0.3rem;
-      padding: 0.15rem 0.45rem;
-      background: rgba(0, 38, 84, 0.06);
-      border-radius: var(--radius);
+    .ec-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-text); font-weight: 600; font-size: 11px; line-height: 1;
+      padding: 5px 10px; border-radius: var(--radius-pill); border: 1.5px solid transparent;
     }
+    .ec-tag--candidat {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.04em; font-size: 10px;
+    }
+    .ec-tag--indigo { background: var(--ec-indigo-soft); color: var(--ec-indigo); }
+    .ec-tag--rose { background: var(--ec-rose-soft); color: #a01571; }
+    .ec-tag--midnight { background: var(--ec-midnight-soft); color: var(--ec-midnight); }
+    .ec-tag--mandarine { background: var(--ec-mandarine-soft); color: #a34d0d; }
+    .ec-tag--heliotrope { background: var(--ec-heliotrope-soft); color: #5b1fb0; }
+    .ec-tag--chartreuse { background: var(--ec-chartreuse); color: var(--ec-charbon); }
+    .ec-tag--charbon { background: var(--ec-charbon); color: var(--ec-albatre); }
+
+    .ec-tag--statut { font-size: 10px; padding: 3px 8px; }
+    .ec-tag--a_valider { background: var(--ec-mandarine-soft); color: #a34d0d; }
+    .ec-tag--valide { background: var(--ec-chartreuse-soft); color: #3d6b00; }
+    .ec-tag--rejete { background: var(--ec-rose-soft); color: #a01571; }
+
     .article-titre {
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.15rem;
-      line-height: 1.35;
-      font-weight: 400;
-      margin-bottom: 0.3rem;
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; font-size: 15px; line-height: 1.18; color: var(--text-strong);
+      transition: color var(--dur-base) var(--ease-standard);
     }
-    .article-item:hover .article-titre {
-      color: var(--bleu);
-    }
+    .article-card:hover .article-titre { color: var(--ec-indigo); }
     .article-extrait {
-      font-size: 0.82rem;
-      color: var(--ink-light);
-      line-height: 1.55;
-      font-weight: 300;
+      font-family: var(--font-text); font-size: 13px; line-height: 1.5; color: var(--text-muted); font-weight: 400;
     }
 
-    .article-statut {
-      display: inline-block;
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.1rem 0.4rem;
-      border-radius: var(--radius);
-      margin-left: 0.5rem;
-      vertical-align: middle;
+    /* ══════════════════════════════════════════════
+       Barometre page
+       ══════════════════════════════════════════════ */
+    .barometre-intro {
+      padding: 24px 0 20px;
     }
-    .statut-a_valider { background: #FFF3CD; color: #856404; }
-    .statut-valide { background: #D4EDDA; color: #155724; }
-    .statut-rejete { background: #F8D7DA; color: #721C24; }
-
-    /* ── Empty state ──────────────────────────────── */
-    .empty-state {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--ink-muted);
+    .barometre-intro p {
+      font-family: var(--font-display); font-weight: 300; font-size: 15px;
+      color: var(--text-muted); line-height: 1.4;
     }
-    .empty-state-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      opacity: 0.4;
-    }
-    .empty-state p {
-      font-style: italic;
-      font-size: 0.9rem;
+    .barometre-keyword {
+      display: inline; font-family: var(--font-display); font-weight: 700;
+      letter-spacing: 0.02em;
+      background: var(--ec-chartreuse); color: var(--ec-charbon);
+      padding: 2px 8px; border-radius: 4px; white-space: nowrap;
     }
 
-    /* ── Loading ──────────────────────────────────── */
-    .loading {
-      text-align: center;
-      padding: 4rem 2rem;
+    .ranking-list { list-style: none; display: flex; flex-direction: column; gap: 12px; padding-top: 20px; }
+
+    .ranking-item {
+      display: grid; grid-template-columns: 48px 180px 1fr 60px; gap: 16px;
+      align-items: center; padding: 20px 24px;
+      background: var(--surface-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
     }
+    .ranking-item:first-child {
+      border: 2px solid var(--ec-chartreuse); box-shadow: var(--shadow-md);
+    }
+
+    .ranking-position {
+      font-family: var(--font-display); font-weight: 700; font-size: 28px;
+      color: var(--text-muted); line-height: 1;
+    }
+    .ranking-item:first-child .ranking-position { color: var(--ec-indigo); }
+
+    .ranking-candidat {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .ranking-candidat-name {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; font-size: 15px; color: var(--text-strong); line-height: 1.1;
+    }
+    .ranking-candidat-parti {
+      font-family: var(--font-text); font-size: 12px; color: var(--text-muted);
+    }
+
+    .ranking-bar-container { position: relative; height: 32px; }
+    .ranking-bar {
+      height: 100%; border-radius: var(--radius-sm);
+      transition: width 0.6s var(--ease-out);
+      min-width: 4px;
+    }
+    .ranking-bar--indigo { background: var(--ec-indigo); }
+    .ranking-bar--rose { background: var(--ec-rose); }
+    .ranking-bar--midnight { background: var(--ec-midnight); }
+    .ranking-bar--mandarine { background: var(--ec-mandarine); }
+    .ranking-bar--heliotrope { background: var(--ec-heliotrope); }
+    .ranking-bar--chartreuse { background: var(--ec-chartreuse); }
+    .ranking-bar--charbon { background: var(--ec-charbon); }
+
+    .ranking-count {
+      font-family: var(--font-display); font-weight: 700; font-size: 24px;
+      color: var(--text-strong); text-align: right; line-height: 1;
+    }
+
+    .ranking-empty {
+      text-align: center; padding: 48px 24px;
+    }
+    .ranking-empty p {
+      font-family: var(--font-display); font-weight: 300; font-size: 15px; color: var(--text-muted);
+    }
+
+    /* ══════════════════════════════════════════════
+       States
+       ══════════════════════════════════════════════ */
+    .loading { text-align: center; padding: 48px 24px; }
     .loading-spinner {
-      width: 24px;
-      height: 24px;
-      border: 2px solid var(--rule);
-      border-top-color: var(--ink);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 1rem;
+      width: 24px; height: 24px; border: 2px solid var(--border-subtle);
+      border-top-color: var(--ec-indigo); border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 0 auto 12px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .loading p {
-      font-size: 0.82rem;
-      color: var(--ink-muted);
-      font-style: italic;
-    }
-
-    /* ── Error ────────────────────────────────────── */
+    .loading p { font-family: var(--font-display); font-size: 13px; font-weight: 300; color: var(--text-muted); }
+    .empty-state { text-align: center; padding: 48px 24px; color: var(--text-muted); }
+    .empty-state p { font-family: var(--font-display); font-weight: 300; font-size: 15px; }
     .error-banner {
-      background: #FFF3CD;
-      border: 1px solid #FFEAA7;
-      padding: 1rem 1.5rem;
-      margin: 1rem 0;
-      border-radius: var(--radius);
-      font-size: 0.85rem;
-      color: #856404;
+      background: var(--ec-mandarine-soft); border: 1.5px solid var(--ec-mandarine);
+      padding: 16px 20px; margin: 16px 0; border-radius: var(--radius-md); font-size: 13px; color: #a34d0d;
     }
-    .error-banner code {
-      font-size: 0.78rem;
-      background: rgba(0,0,0,0.05);
-      padding: 0.1rem 0.3rem;
-      border-radius: 2px;
-    }
+    .error-banner code { font-size: 12px; background: rgba(0,0,0,0.06); padding: 2px 5px; border-radius: 4px; }
 
-    /* ── Footer ───────────────────────────────────── */
+    /* ══════════════════════════════════════════════
+       Footer
+       ══════════════════════════════════════════════ */
     footer {
-      text-align: center;
-      padding: 2rem 0 3rem;
-      margin-top: 2rem;
-      border-top: 1px solid var(--rule);
-      font-size: 0.7rem;
-      color: var(--ink-muted);
-      letter-spacing: 0.05em;
+      text-align: center; padding: 24px 0 40px; margin-top: 40px;
+      border-top: 1.5px solid var(--border-subtle);
+      font-family: var(--font-text); font-size: 12px; color: var(--text-muted);
     }
 
-    /* ── Responsive ───────────────────────────────── */
-    @media (max-width: 680px) {
-      .stats-bar { gap: 1.5rem; }
-      .article-item {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
-      }
-      .article-meta {
-        display: flex;
-        gap: 0.8rem;
-        align-items: baseline;
-      }
+    /* ══════════════════════════════════════════════
+       Responsive
+       ══════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .header { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .countdown-label { display: none; }
+      .stats-bar { gap: 20px; flex-wrap: wrap; }
+      .stat-value { font-size: 22px; }
+      .article-card { grid-template-columns: 1fr; gap: 6px; padding: 16px; }
+      .article-meta { display: flex; gap: 10px; align-items: baseline; }
       .article-source { margin-top: 0; }
-      .filters { flex-direction: column; align-items: stretch; }
-      .filter-right { margin-left: 0; }
+      .filter-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .filter-label { min-width: auto; }
       .search-input { width: 100%; }
+      .ranking-item { grid-template-columns: 36px 1fr 48px; }
+      .ranking-bar-container { display: none; }
     }
 
-    /* ── Animations ───────────────────────────────── */
+    /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .article-item {
-      animation: fadeUp 0.3s ease both;
-    }
+    .article-card, .ranking-item { animation: fadeUp 0.3s var(--ease-out) both; }
   </style>
 </head>
 <body>
 
+<div class="container">
+
   <!-- ═══════════════ HEADER ═══════════════ -->
-  <div class="container">
-    <header>
-      <div class="header-date" id="current-date"></div>
-      <h1>Veille Presidentielle</h1>
-      <div class="header-subtitle">Prises de parole des candidats dans les medias</div>
-    </header>
+  <div class="header">
+    <div class="header-left">
+      <img src="assets/ec2027-logo.png" alt="EC2027" class="header-logo">
+      <div class="header-title">
+        Presidentielle 2027
+        <span>Qui parle d'économie circulaire ?</span>
+      </div>
+    </div>
+    <div class="countdown" id="countdown">J-...</div>
+  </div>
 
-    <!-- ═══════════════ STATS ═══════════════ -->
-    <div class="stats-bar" id="stats-bar">
-      <div class="stat">
-        <div class="stat-value" id="stat-total">--</div>
-        <div class="stat-label">Articles</div>
+  <!-- ═══════════════ BAROMETRE ═══════════════ -->
+  <section class="barometre-section">
+    <div class="barometre-intro">
+      <div class="section-header" style="margin-bottom: 12px;">
+        <div class="section-title">Barometre</div>
       </div>
-      <div class="stat">
-        <div class="stat-value" id="stat-candidats">--</div>
-        <div class="stat-label">Candidats</div>
+      <p>
+        Classement des candidats par nombre de prises de parole mentionnant l'<span class="barometre-keyword">economie circulaire</span>.
+      </p>
+    </div>
+    <div id="ranking-container">
+      <div class="loading">
+        <div class="loading-spinner"></div>
+        <p>Chargement...</p>
       </div>
-      <div class="stat">
-        <div class="stat-value" id="stat-sources">--</div>
-        <div class="stat-label">Sources</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value" id="stat-today">--</div>
-        <div class="stat-label">Aujourd'hui</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEED ═══════════════ -->
+  <section class="feed-section">
+    <div class="section-header" style="margin-bottom: 16px;">
+      <div class="section-title">Fil d'actu</div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="ec-toggle">
+          <button class="ec-toggle-btn active" id="toggle-all">Tous les articles</button>
+          <button class="ec-toggle-btn" id="toggle-ec">Economie circulaire</button>
+        </div>
+        <div class="section-count" id="articles-count"></div>
       </div>
     </div>
 
-    <!-- ═══════════════ FILTERS ═══════════════ -->
-    <div class="filters">
-      <div class="filter-group">
+    <div class="filters-section">
+      <div class="filter-row">
         <span class="filter-label">Candidat</span>
-        <select id="filter-candidat">
-          <option value="">Tous</option>
-        </select>
+        <div class="pill-filters" id="candidat-pills"></div>
       </div>
-      <div class="filter-group">
+      <div class="filter-row">
         <span class="filter-label">Source</span>
-        <select id="filter-source">
-          <option value="">Toutes</option>
-        </select>
+        <select id="filter-source"><option value="">Toutes les sources</option></select>
+        <input type="text" class="search-input" id="search-input" placeholder="Rechercher..." style="margin-left: auto;">
       </div>
-      <div class="filter-group">
-        <span class="filter-label">Statut</span>
-        <select id="filter-statut">
-          <option value="">Tous</option>
-          <option value="a_valider">A valider</option>
-          <option value="valide">Valide</option>
-          <option value="rejete">Rejete</option>
-        </select>
-      </div>
-      <div class="filter-group filter-right">
-        <input type="text" class="search-input" id="search-input" placeholder="Rechercher un titre...">
-      </div>
-    </div>
-
-    <!-- ═══════════════ ARTICLES ═══════════════ -->
-    <div class="articles-header">
-      <div class="articles-title">Dernieres prises de parole</div>
-      <div class="articles-count" id="articles-count"></div>
     </div>
 
     <div id="articles-container">
       <div class="loading">
         <div class="loading-spinner"></div>
-        <p>Chargement des articles...</p>
+        <p>Chargement...</p>
       </div>
     </div>
+  </section>
 
-    <!-- ═══════════════ FOOTER ═══════════════ -->
-    <footer>
-      Veille Presidentielle 2027 &middot; Collecte automatique via RSS &middot; 
-    </footer>
-  </div>
+  <footer>
+    Veille Presidentielle 2027 &middot; Collecte automatique via RSS
+  </footer>
+</div>
 
-  <!-- ═══════════════ SCRIPT ═══════════════ -->
-  <script>
-    // ── Configuration ────────────────────────────
-    // Remplace SUPABASE_ANON_KEY par ta cle anon (Dashboard > Settings > API)
-    const SUPABASE_URL = 'https://fwhvkiijogsgvgehlena.supabase.co';
-    const SUPABASE_ANON_KEY = 'sb_publishable_YnJssNbAki6AcIqoPDRSmg_Eb6AvLgB';
+<!-- ═══════════════ SCRIPT ═══════════════ -->
+<script>
+  // ── Config ─────────────────────────────────
+  const SUPABASE_URL = 'https://fwhvkiijogsgvgehlena.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_YnJssNbAki6AcIqoPDRSmg_Eb6AvLgB';
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  // Election date: first round estimated April 10, 2027
+  const ELECTION_DATE = new Date('2027-04-10T08:00:00+02:00');
 
-    // ── State ────────────────────────────────────
-    let allArticles = [];
-    let candidatsMap = {};
+  // Economie circulaire keywords
+  const EC_KEYWORDS = [
+    'economie circulaire', 'économie circulaire',
+    'recyclage', 'recyclabilite', 'recyclabilité',
+    'reutilisation', 'réutilisation', 'reemploi', 'réemploi',
+    'zero dechet', 'zéro déchet',
+    'eco-conception', 'éco-conception', 'ecoconception', 'écoconception',
+    'circularite', 'circularité'
+  ];
 
-    // ── Init ─────────────────────────────────────
-    document.addEventListener('DOMContentLoaded', async () => {
-      setCurrentDate();
-      await loadData();
-      setupFilters();
+  // Tag tones
+  const TAG_TONES = ['indigo', 'rose', 'midnight', 'mandarine', 'heliotrope', 'chartreuse', 'charbon'];
+  const candidatToneMap = {};
+  let toneIdx = 0;
+  function getTone(id) {
+    if (!candidatToneMap[id]) { candidatToneMap[id] = TAG_TONES[toneIdx++ % TAG_TONES.length]; }
+    return candidatToneMap[id];
+  }
+
+  // ── State ──────────────────────────────────
+  let allArticles = [];
+  let candidatsMap = {};
+  let candidatsList = [];
+  let activeCandidatFilter = '';
+  let ecFilterActive = false;
+
+  // ── Init ───────────────────────────────────
+  document.addEventListener('DOMContentLoaded', async () => {
+    startCountdown();
+    await loadData();
+    setupFilters();
+  });
+
+  // ── Countdown ──────────────────────────────
+  function startCountdown() {
+    const now = new Date();
+    const diff = ELECTION_DATE - now;
+    const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+    document.getElementById('countdown').textContent = `J-${days}`;
+  }
+
+  // ── Data ───────────────────────────────────
+  async function loadData() {
+    try {
+      const [candidatsRes, articlesRes] = await Promise.all([
+        db.from('candidats').select('*').eq('actif', true),
+        db.from('prises_de_parole').select('*').order('date_publication', { ascending: false })
+      ]);
+      if (candidatsRes.error) throw candidatsRes.error;
+      if (articlesRes.error) throw articlesRes.error;
+
+      candidatsList = (candidatsRes.data || []).sort((a, b) => a.nom.localeCompare(b.nom));
+      candidatsList.forEach(c => { candidatsMap[c.id] = c; getTone(c.id); });
+      allArticles = articlesRes.data || [];
+
+      buildCandidatPills();
+      populateSourceFilter();
+      renderBarometre();
+      renderArticles(allArticles);
+    } catch (err) {
+      console.error('Erreur:', err);
+      document.getElementById('articles-container').innerHTML = `
+        <div class="error-banner">
+          <strong>Erreur de connexion a Supabase.</strong><br>
+          Verifie la cle <code>SUPABASE_ANON_KEY</code> et les politiques RLS.
+        </div>`;
+    }
+  }
+
+  // ── Candidat pills ─────────────────────────
+  function buildCandidatPills() {
+    const container = document.getElementById('candidat-pills');
+    // "Tous" pill
+    const allPill = document.createElement('button');
+    allPill.className = 'pill-filter active';
+    allPill.textContent = 'Tous';
+    allPill.dataset.id = '';
+    allPill.addEventListener('click', () => selectCandidat('', allPill));
+    container.appendChild(allPill);
+
+    candidatsList.forEach(c => {
+      const pill = document.createElement('button');
+      pill.className = 'pill-filter';
+      pill.textContent = c.nom;
+      pill.dataset.id = c.id;
+      pill.dataset.tone = getTone(c.id);
+      pill.addEventListener('click', () => selectCandidat(c.id, pill));
+      container.appendChild(pill);
+    });
+  }
+
+  function selectCandidat(id, pill) {
+    document.querySelectorAll('#candidat-pills .pill-filter').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    activeCandidatFilter = id;
+    applyFilters();
+  }
+
+  function populateSourceFilter() {
+    const sources = [...new Set(allArticles.map(a => a.source).filter(Boolean))].sort();
+    const sel = document.getElementById('filter-source');
+    sources.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s; opt.textContent = s;
+      sel.appendChild(opt);
+    });
+  }
+
+  // ── Filters ────────────────────────────────
+  function setupFilters() {
+    document.getElementById('filter-source').addEventListener('change', applyFilters);
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+
+    const btnAll = document.getElementById('toggle-all');
+    const btnEc = document.getElementById('toggle-ec');
+    btnAll.addEventListener('click', () => {
+      ecFilterActive = false;
+      btnAll.className = 'ec-toggle-btn active';
+      btnEc.className = 'ec-toggle-btn';
+      applyFilters();
+    });
+    btnEc.addEventListener('click', () => {
+      ecFilterActive = true;
+      btnEc.className = 'ec-toggle-btn active-ec';
+      btnAll.className = 'ec-toggle-btn';
+      applyFilters();
+    });
+  }
+
+  function isEcArticle(a) {
+    const text = ((a.titre || '') + ' ' + (a.extrait || '')).toLowerCase();
+    return EC_KEYWORDS.some(kw => text.includes(kw));
+  }
+
+  function applyFilters() {
+    const source = document.getElementById('filter-source').value;
+    const search = document.getElementById('search-input').value.toLowerCase().trim();
+
+    let filtered = allArticles;
+    if (ecFilterActive) filtered = filtered.filter(isEcArticle);
+    if (activeCandidatFilter) filtered = filtered.filter(a => String(a.candidat_id) === activeCandidatFilter);
+    if (source) filtered = filtered.filter(a => a.source === source);
+    if (search) filtered = filtered.filter(a =>
+      (a.titre || '').toLowerCase().includes(search) ||
+      (a.extrait || '').toLowerCase().includes(search)
+    );
+    renderArticles(filtered);
+  }
+
+  // ── Render articles ────────────────────────
+  function renderArticles(articles) {
+    const container = document.getElementById('articles-container');
+    const countEl = document.getElementById('articles-count');
+    countEl.textContent = `${articles.length} article${articles.length !== 1 ? 's' : ''}`;
+
+    if (!articles.length) {
+      container.innerHTML = '<div class="empty-state"><p>Aucun article ne correspond aux filtres.</p></div>';
+      return;
+    }
+
+    const list = document.createElement('ul');
+    list.className = 'article-list';
+
+    articles.forEach((a, i) => {
+      const c = candidatsMap[a.candidat_id];
+      const tone = getTone(a.candidat_id);
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.className = 'article-card';
+      link.href = a.url || '#';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.style.animationDelay = `${Math.min(i * 0.04, 0.5)}s`;
+
+      link.innerHTML = `
+        <div class="article-meta">
+          <div class="article-date">${formatDate(a.date_publication)}</div>
+          <div class="article-source">${esc(a.source || 'Inconnu')}</div>
+        </div>
+        <div class="article-body">
+          <div class="article-tags">
+            <span class="ec-tag ec-tag--candidat ec-tag--${tone}">${esc(c ? c.nom : 'Inconnu')}</span>
+          </div>
+          <div class="article-titre">${esc(a.titre || 'Sans titre')}</div>
+          <div class="article-extrait">${esc(a.extrait || '')}</div>
+        </div>`;
+      li.appendChild(link);
+      list.appendChild(li);
     });
 
-    function setCurrentDate() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      document.getElementById('current-date').textContent =
-        now.toLocaleDateString('fr-FR', options).toUpperCase();
-    }
+    container.innerHTML = '';
+    container.appendChild(list);
+  }
 
-    // ── Data loading ─────────────────────────────
-    async function loadData() {
-      try {
-        // Charger candidats et articles en parallele
-        const [candidatsRes, articlesRes] = await Promise.all([
-          db.from('candidats').select('*').eq('actif', true),
-          db.from('prises_de_parole').select('*').order('date_publication', { ascending: false })
-        ]);
+  // ── Barometre ──────────────────────────────
+  function renderBarometre() {
+    const container = document.getElementById('ranking-container');
 
-        if (candidatsRes.error) throw candidatsRes.error;
-        if (articlesRes.error) throw articlesRes.error;
+    // Count articles matching EC keywords per candidat
+    const counts = {};
+    candidatsList.forEach(c => { counts[c.id] = 0; });
 
-        // Indexer les candidats par id
-        const candidats = candidatsRes.data || [];
-        candidats.forEach(c => { candidatsMap[c.id] = c; });
-
-        allArticles = articlesRes.data || [];
-
-        // Peupler les filtres
-        populateFilters(candidats, allArticles);
-
-        // Stats
-        updateStats(allArticles, candidats);
-
-        // Afficher
-        renderArticles(allArticles);
-
-      } catch (err) {
-        console.error('Erreur chargement:', err);
-        document.getElementById('articles-container').innerHTML = `
-          <div class="error-banner">
-            <strong>Erreur de connexion a Supabase.</strong><br>
-            Verifie que la cle <code>SUPABASE_ANON_KEY</code> est configuree dans
-            <code>docs/index.html</code> et que les politiques RLS autorisent la lecture.
-          </div>
-        `;
+    allArticles.forEach(a => {
+      const text = ((a.titre || '') + ' ' + (a.extrait || '')).toLowerCase();
+      const matches = EC_KEYWORDS.some(kw => text.includes(kw));
+      if (matches && counts[a.candidat_id] !== undefined) {
+        counts[a.candidat_id]++;
       }
+    });
+
+    // Sort by count desc
+    const ranked = candidatsList
+      .map(c => ({ ...c, count: counts[c.id] }))
+      .sort((a, b) => b.count - a.count);
+
+    const maxCount = Math.max(...ranked.map(r => r.count), 1);
+
+    if (ranked.every(r => r.count === 0)) {
+      container.innerHTML = `
+        <div class="ranking-empty">
+          <p>Aucune prise de parole sur l'economie circulaire detectee pour le moment.</p>
+          <p style="margin-top:8px; font-size:13px;">Les articles sont analyses via les mots-cles :
+          recyclage, reemploi, eco-conception, zero dechet, circularite...</p>
+        </div>`;
+      return;
     }
 
-    // ── Filters ──────────────────────────────────
-    function populateFilters(candidats, articles) {
-      const candidatSelect = document.getElementById('filter-candidat');
-      candidats
-        .sort((a, b) => a.nom.localeCompare(b.nom))
-        .forEach(c => {
-          const opt = document.createElement('option');
-          opt.value = c.id;
-          opt.textContent = c.nom;
-          candidatSelect.appendChild(opt);
-        });
+    const list = document.createElement('ul');
+    list.className = 'ranking-list';
 
-      const sources = [...new Set(articles.map(a => a.source).filter(Boolean))].sort();
-      const sourceSelect = document.getElementById('filter-source');
-      sources.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = s;
-        opt.textContent = s;
-        sourceSelect.appendChild(opt);
-      });
-    }
+    ranked.forEach((r, i) => {
+      const tone = getTone(r.id);
+      const pct = maxCount > 0 ? (r.count / maxCount) * 100 : 0;
+      const li = document.createElement('li');
+      li.className = 'ranking-item';
+      li.style.animationDelay = `${i * 0.06}s`;
+      li.innerHTML = `
+        <div class="ranking-position">${i + 1}</div>
+        <div class="ranking-candidat">
+          <div class="ranking-candidat-name">${esc(r.nom)}</div>
+          <div class="ranking-candidat-parti">${esc(r.parti || '')}</div>
+        </div>
+        <div class="ranking-bar-container">
+          <div class="ranking-bar ranking-bar--${tone}" style="width: ${pct}%"></div>
+        </div>
+        <div class="ranking-count">${r.count}</div>`;
+      list.appendChild(li);
+    });
 
-    function setupFilters() {
-      const ids = ['filter-candidat', 'filter-source', 'filter-statut', 'search-input'];
-      ids.forEach(id => {
-        document.getElementById(id).addEventListener(
-          id === 'search-input' ? 'input' : 'change',
-          applyFilters
-        );
-      });
-    }
+    container.innerHTML = '';
+    container.appendChild(list);
+  }
 
-    function applyFilters() {
-      const candidatId = document.getElementById('filter-candidat').value;
-      const source = document.getElementById('filter-source').value;
-      const statut = document.getElementById('filter-statut').value;
-      const search = document.getElementById('search-input').value.toLowerCase().trim();
-
-      let filtered = allArticles;
-
-      if (candidatId) filtered = filtered.filter(a => String(a.candidat_id) === candidatId);
-      if (source) filtered = filtered.filter(a => a.source === source);
-      if (statut) filtered = filtered.filter(a => a.statut === statut);
-      if (search) filtered = filtered.filter(a =>
-        (a.titre || '').toLowerCase().includes(search) ||
-        (a.extrait || '').toLowerCase().includes(search)
-      );
-
-      renderArticles(filtered);
-    }
-
-    // ── Stats ────────────────────────────────────
-    function updateStats(articles, candidats) {
-      document.getElementById('stat-total').textContent = articles.length;
-      document.getElementById('stat-candidats').textContent = candidats.length;
-
-      const sources = new Set(articles.map(a => a.source).filter(Boolean));
-      document.getElementById('stat-sources').textContent = sources.size;
-
-      const today = new Date().toISOString().split('T')[0];
-      const todayCount = articles.filter(a =>
-        a.date_publication && a.date_publication.startsWith(today)
-      ).length;
-      document.getElementById('stat-today').textContent = todayCount;
-    }
-
-    // ── Render ───────────────────────────────────
-    function renderArticles(articles) {
-      const container = document.getElementById('articles-container');
-      const countEl = document.getElementById('articles-count');
-
-      countEl.textContent = `${articles.length} article${articles.length !== 1 ? 's' : ''}`;
-
-      if (articles.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">&mdash;</div>
-            <p>Aucun article ne correspond aux filtres selectionnes.</p>
-          </div>
-        `;
-        return;
-      }
-
-      const list = document.createElement('ul');
-      list.className = 'article-list';
-
-      articles.forEach((article, i) => {
-        const candidat = candidatsMap[article.candidat_id];
-        const li = document.createElement('li');
-
-        const link = document.createElement('a');
-        link.className = 'article-item';
-        link.href = article.url || '#';
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.style.animationDelay = `${Math.min(i * 0.03, 0.5)}s`;
-
-        const date = formatDate(article.date_publication);
-        const statutClass = article.statut ? `statut-${article.statut}` : '';
-        const statutLabel = formatStatut(article.statut);
-
-        link.innerHTML = `
-          <div class="article-meta">
-            <div class="article-date">${date}</div>
-            <div class="article-source">${escapeHtml(article.source || 'Source inconnue')}</div>
-          </div>
-          <div class="article-body">
-            <span class="article-candidat">${escapeHtml(candidat ? candidat.nom : 'Inconnu')}</span>
-            <span class="article-statut ${statutClass}">${statutLabel}</span>
-            <div class="article-titre">${escapeHtml(article.titre || 'Sans titre')}</div>
-            <div class="article-extrait">${escapeHtml(article.extrait || '')}</div>
-          </div>
-        `;
-
-        li.appendChild(link);
-        list.appendChild(li);
-      });
-
-      container.innerHTML = '';
-      container.appendChild(list);
-    }
-
-    // ── Helpers ──────────────────────────────────
-    function formatDate(isoString) {
-      if (!isoString) return 'Date inconnue';
-      const d = new Date(isoString);
-      const day = d.getDate();
-      const months = ['janv.', 'fevr.', 'mars', 'avril', 'mai', 'juin',
-                       'juil.', 'aout', 'sept.', 'oct.', 'nov.', 'dec.'];
-      const month = months[d.getMonth()];
-      const year = d.getFullYear();
-      const hours = String(d.getHours()).padStart(2, '0');
-      const mins = String(d.getMinutes()).padStart(2, '0');
-      return `${day} ${month} ${year}<br>${hours}:${mins}`;
-    }
-
-    function formatStatut(statut) {
-      const labels = { a_valider: 'A valider', valide: 'Valide', rejete: 'Rejete' };
-      return labels[statut] || statut || '';
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-  </script>
+  // ── Helpers ────────────────────────────────
+  function formatDate(iso) {
+    if (!iso) return 'Date inconnue';
+    const d = new Date(iso);
+    const months = ['janv.','fevr.','mars','avril','mai','juin','juil.','aout','sept.','oct.','nov.','dec.'];
+    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}<br>${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  }
+  function formatStatut(s) {
+    return { a_valider: 'A valider', valide: 'Valide', rejete: 'Rejete' }[s] || s || '';
+  }
+  function esc(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+</script>
 
 </body>
 </html>
