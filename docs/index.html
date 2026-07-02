@@ -665,7 +665,7 @@
     candidatsList.forEach(c => {
       const pill = document.createElement('button');
       pill.className = 'pill-filter';
-      pill.textContent = c.nom;
+      pill.textContent = c.parti || c.nom;
       pill.dataset.id = c.id;
       pill.dataset.tone = getTone(c.id);
       pill.addEventListener('click', () => selectCandidat(c.id, pill));
@@ -763,7 +763,7 @@
         </div>
         <div class="article-body">
           <div class="article-tags">
-            <span class="ec-tag ec-tag--candidat ec-tag--${tone}">${esc(c ? c.nom : 'Inconnu')}</span>
+            <span class="ec-tag ec-tag--candidat ec-tag--${tone}">${esc(c ? (c.parti || c.nom) : 'Inconnu')}</span>
           </div>
           <div class="article-titre">${esc(a.titre || 'Sans titre')}</div>
           <div class="article-extrait">${esc(a.extrait || '')}</div>
@@ -817,8 +817,8 @@
           li.innerHTML = `
             <div class="ranking-position" style="color: var(--text-muted);">—</div>
             <div class="ranking-candidat">
-              <div class="ranking-candidat-name">${esc(r.nom)}</div>
-              <div class="ranking-candidat-parti">${esc(r.parti || '')}</div>
+              <div class="ranking-candidat-name">${esc(r.parti || r.nom)}</div>
+              <div class="ranking-candidat-parti">${esc(r.nom)}</div>
             </div>
             <div class="ranking-bar-container">
               <div style="font-size:12px; color:var(--text-muted); line-height:32px; font-style:italic;">Programme non publie</div>
@@ -828,8 +828,8 @@
           li.innerHTML = `
             <div class="ranking-position">${position}</div>
             <div class="ranking-candidat">
-              <div class="ranking-candidat-name">${esc(r.nom)}</div>
-              <div class="ranking-candidat-parti">${esc(r.parti || '')}</div>
+              <div class="ranking-candidat-name">${esc(r.parti || r.nom)}</div>
+              <div class="ranking-candidat-parti">${esc(r.nom)}</div>
             </div>
             <div class="ranking-bar-container">
               <div class="ranking-bar ranking-bar--${tone}" style="width: ${pct}%"></div>
@@ -863,8 +863,8 @@
     let html = `
       <div class="modal-header">
         <div>
-          <div class="modal-title">${esc(candidat.nom)}</div>
-          <div class="modal-parti">${esc(candidat.parti)}</div>
+          <div class="modal-title">${esc(candidat.parti || candidat.nom)}</div>
+          <div class="modal-parti">${esc(candidat.nom)}</div>
         </div>
         <button class="modal-close" onclick="closeModal()">✕</button>
       </div>`;
