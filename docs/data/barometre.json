@@ -32,19 +32,19 @@
     {
       "nom": "Fabien Roussel",
       "parti": "PCF",
-      "programme_url": null,
-      "programme_statut": "non publié",
-      "total_mesures": null,
-      "mesures_ec": null,
+      "programme_url": "https://www.pcf.fr/le_programme",
+      "programme_statut": "publié",
+      "total_mesures": 8,
+      "mesures_ec": 0,
       "details": []
     },
     {
       "nom": "François Bayrou",
       "parti": "Modem",
-      "programme_url": null,
-      "programme_statut": "non publié",
+      "programme_url": "https://www.mouvementdemocrate.fr/vers-une-transition-ecologique-solidaire-7925",
+      "programme_statut": "publié",
       "total_mesures": null,
-      "mesures_ec": null,
+      "mesures_ec": 0,
       "details": []
     },
     {
@@ -88,11 +88,31 @@
     {
       "nom": "Olivier Faure",
       "parti": "Parti Socialiste",
-      "programme_url": null,
-      "programme_statut": "non publié",
+      "programme_url": "https://projet-socialiste.fr/",
+      "programme_statut": "publié",
       "total_mesures": null,
-      "mesures_ec": null,
-      "details": []
+      "mesures_ec": 19,
+      "details": [
+        "Faire de l'économie circulaire et de la filière de réemploi une priorité industrielle : TVA réduite, avantages fiscaux, plan d'investissement",
+        "Généraliser le bonus réparation à tous les biens de consommation courante (électroménager, textile, mobilier)",
+        "Financer les ressourceries et recycleries",
+        "Favoriser la mode éthique, soutenir les filières de recyclage, de réparation et de production de vêtements durables",
+        "Bonus écologique pour les matières recyclées ou biosourcées, interdire la publicité pour la fast fashion",
+        "Politique ambitieuse de réutilisation avancée des eaux usées",
+        "Favoriser l'économie circulaire de l'eau, porter un fonds dédié devant l'ONU",
+        "Étendre l'obligation de réparation et disponibilité des pièces des fabricants (7-10 ans minimum après vente)",
+        "Rendre obligatoire le score de réparabilité des appareils électroniques",
+        "Réguler les mises à jour logicielles empêchant le fonctionnement des anciens appareils",
+        "Interdire les réparations verrouillées par logiciel",
+        "Incitations fiscales pour les produits réparables, pénalités pour les designs délibérément irréparables",
+        "TVA réduite sur les services de réparation",
+        "Responsabilité élargie du producteur : les fabricants financent l'infrastructure de réparation",
+        "Droit à la réparation : publication obligatoire des manuels, vente des pièces détachées, accès aux réparateurs indépendants",
+        "Extension des garanties de durabilité au-delà du minimum légal",
+        "Reprise obligatoire des appareils électroniques usagés par les fabricants",
+        "Objectifs de recyclage contraignants pour les fabricants",
+        "Financement de l'infrastructure de recyclage et création d'emplois dans le recyclage"
+      ]
     }
   ]
 }
