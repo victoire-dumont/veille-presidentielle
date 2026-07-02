@@ -21,12 +21,12 @@
       "details": []
     },
     {
-      "nom": "Emmanuel Macron",
+      "nom": "Gabriel Attal",
       "parti": "Renaissance",
-      "programme_url": null,
-      "programme_statut": "non publié",
+      "programme_url": "https://attalpresident.fr/programme",
+      "programme_statut": "publié",
       "total_mesures": null,
-      "mesures_ec": null,
+      "mesures_ec": 0,
       "details": []
     },
     {
@@ -55,16 +55,16 @@
       "total_mesures": null,
       "mesures_ec": 10,
       "details": [
-        "Abolir l'obsolescence programmée et allonger les durées de garantie légale des produits",
-        "Interdire les plastiques à usage unique, remettre en place la consigne, rendre obligatoire le recyclage et le compostage, généraliser les filières de réemploi",
-        "Créer un service public de la réparation et du réemploi",
-        "Rendre obligatoire l'écoconception des produits, ouvrir des formations dédiées au low-tech et à l'écoconception",
-        "Généraliser l'indice de durabilité des produits, rendre obligatoire la disponibilité des pièces de rechange",
-        "Faire reculer la publicité dans l'espace public, interdire les prospectus et panneaux numériques",
-        "Interdire la publicité des produits les plus émetteurs de gaz à effet de serre",
-        "Diminuer les possibilités de diffusion de publicité à la télévision",
-        "Créer un réseau national de déchèteries/recyclage",
-        "Interdire les allégations 'neutre en carbone' sur les produits"
+        "[Chap. 13 §4] Abolir l'obsolescence programmée et allonger les durées de garantie légale des produits",
+        "[Chap. 13 §4] Interdire les plastiques à usage unique, remettre en place la consigne, rendre obligatoire le recyclage et le compostage, généraliser les filières de réemploi",
+        "[Chap. 13 §4] Créer un service public de la réparation et du réemploi",
+        "[Chap. 13 §4] Rendre obligatoire l'écoconception des produits, ouvrir des formations dédiées au low-tech et à l'écoconception",
+        "[Chap. 13 §4] Généraliser l'indice de durabilité des produits, rendre obligatoire la disponibilité des pièces de rechange",
+        "[Chap. 13 §4] Faire reculer la publicité dans l'espace public, interdire les prospectus et panneaux numériques",
+        "[Chap. 13 §4] Interdire la publicité des produits les plus émetteurs de gaz à effet de serre",
+        "[Chap. 13 §4] Diminuer les possibilités de diffusion de publicité à la télévision",
+        "[Chap. 13 §4] Créer un réseau national de déchèteries/recyclage",
+        "[Chap. 13 §4] Interdire les allégations 'neutre en carbone' sur les produits"
       ]
     },
     {
@@ -93,25 +93,25 @@
       "total_mesures": null,
       "mesures_ec": 19,
       "details": [
-        "Faire de l'économie circulaire et de la filière de réemploi une priorité industrielle : TVA réduite, avantages fiscaux, plan d'investissement",
-        "Généraliser le bonus réparation à tous les biens de consommation courante (électroménager, textile, mobilier)",
-        "Financer les ressourceries et recycleries",
-        "Favoriser la mode éthique, soutenir les filières de recyclage, de réparation et de production de vêtements durables",
-        "Bonus écologique pour les matières recyclées ou biosourcées, interdire la publicité pour la fast fashion",
-        "Politique ambitieuse de réutilisation avancée des eaux usées",
-        "Favoriser l'économie circulaire de l'eau, porter un fonds dédié devant l'ONU",
-        "Étendre l'obligation de réparation et disponibilité des pièces des fabricants (7-10 ans minimum après vente)",
-        "Rendre obligatoire le score de réparabilité des appareils électroniques",
-        "Réguler les mises à jour logicielles empêchant le fonctionnement des anciens appareils",
-        "Interdire les réparations verrouillées par logiciel",
-        "Incitations fiscales pour les produits réparables, pénalités pour les designs délibérément irréparables",
-        "TVA réduite sur les services de réparation",
-        "Responsabilité élargie du producteur : les fabricants financent l'infrastructure de réparation",
-        "Droit à la réparation : publication obligatoire des manuels, vente des pièces détachées, accès aux réparateurs indépendants",
-        "Extension des garanties de durabilité au-delà du minimum légal",
-        "Reprise obligatoire des appareils électroniques usagés par les fabricants",
-        "Objectifs de recyclage contraignants pour les fabricants",
-        "Financement de l'infrastructure de recyclage et création d'emplois dans le recyclage"
+        "[Chap. 3 — Réindustrialiser] Faire de l'économie circulaire et de la filière de réemploi une priorité industrielle : TVA réduite, avantages fiscaux, plan d'investissement",
+        "[Chap. 3 — Réindustrialiser] Généraliser le bonus réparation à tous les biens de consommation courante (électroménager, textile, mobilier)",
+        "[Chap. 3 — Réindustrialiser] Financer les ressourceries et recycleries",
+        "[Chap. 15 — Écologie populaire] Favoriser la mode éthique, soutenir les filières de recyclage, de réparation et de production de vêtements durables",
+        "[Chap. 15 — Écologie populaire] Bonus écologique pour les matières recyclées ou biosourcées, interdire la publicité pour la fast fashion",
+        "[Chap. 15 — Écologie populaire] Politique ambitieuse de réutilisation avancée des eaux usées",
+        "[Chap. 15 — Écologie populaire] Favoriser l'économie circulaire de l'eau, porter un fonds dédié devant l'ONU",
+        "[Chap. 5 — Progrès technique] Étendre l'obligation de réparation et disponibilité des pièces des fabricants (7-10 ans minimum après vente)",
+        "[Chap. 5 — Progrès technique] Rendre obligatoire le score de réparabilité des appareils électroniques",
+        "[Chap. 5 — Progrès technique] Réguler les mises à jour logicielles empêchant le fonctionnement des anciens appareils",
+        "[Chap. 5 — Progrès technique] Interdire les réparations verrouillées par logiciel",
+        "[Chap. 5 — Progrès technique] Incitations fiscales pour les produits réparables, pénalités pour les designs délibérément irréparables",
+        "[Chap. 5 — Progrès technique] TVA réduite sur les services de réparation",
+        "[Chap. 5 — Progrès technique] Responsabilité élargie du producteur : les fabricants financent l'infrastructure de réparation",
+        "[Chap. 5 — Progrès technique] Droit à la réparation : publication obligatoire des manuels, vente des pièces détachées, accès aux réparateurs indépendants",
+        "[Chap. 5 — Progrès technique] Extension des garanties de durabilité au-delà du minimum légal",
+        "[Chap. 5 — Progrès technique] Reprise obligatoire des appareils électroniques usagés par les fabricants",
+        "[Chap. 5 — Progrès technique] Objectifs de recyclage contraignants pour les fabricants",
+        "[Chap. 5 — Progrès technique] Financement de l'infrastructure de recyclage et création d'emplois dans le recyclage"
       ]
     }
   ]

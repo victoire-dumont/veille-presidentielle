@@ -49,7 +49,7 @@ MAX_EXTRAIT = 300
 HANDLES = {
     "retailleau_Actu": "5b46e3e0-e7ef-4b2c-922f-d27b357c469e",
     "EPhilippe_LH": "6719ba84-f674-4964-a7a1-6e7fb8bccd6c",
-    "EmmanuelMacron": "45a5b0fe-c818-4abf-97ca-443cfecdc79e",
+    "GabrielAttal": "45a5b0fe-c818-4abf-97ca-443cfecdc79e",
     "Fabien_Roussel": "82fd2925-aa50-4faa-bdc3-852e43549505",
     "bayrou": "7ae55fe2-f0b0-45f4-b30b-ea0e1920840f",
     "JLMelenchon": "0b34985f-d306-4bfc-ae7b-829151bcaa2c",
