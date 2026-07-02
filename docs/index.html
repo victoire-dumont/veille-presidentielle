@@ -80,10 +80,33 @@
     }
 
     /* ══════════════════════════════════════════════
+       Nav tabs
+       ══════════════════════════════════════════════ */
+    .nav {
+      display: flex; align-items: center; gap: 4px;
+      padding: 12px 0; border-bottom: 1.5px solid var(--border-subtle);
+    }
+    .nav-tab {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.02em; font-size: 13px; color: var(--text-muted);
+      padding: 8px 18px; border-radius: var(--radius-pill); cursor: pointer;
+      border: none; background: none;
+      transition: all var(--dur-base) var(--ease-standard);
+    }
+    .nav-tab:hover { color: var(--text-strong); background: rgba(0,0,0,0.03); }
+    .nav-tab.active { background: var(--ec-charbon); color: var(--ec-albatre); }
+
+    /* ══════════════════════════════════════════════
+       Pages
+       ══════════════════════════════════════════════ */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ══════════════════════════════════════════════
        Sections
        ══════════════════════════════════════════════ */
-    .barometre-section { padding: 24px 0 32px; }
-    .feed-section { padding: 0 0 24px; }
+    .barometre-section { padding: 24px 0 24px; }
+    .feed-section { padding: 24px 0 24px; }
 
     /* Toggle EC */
     .ec-toggle {
@@ -242,7 +265,7 @@
        Barometre page
        ══════════════════════════════════════════════ */
     .barometre-intro {
-      padding: 24px 0 20px;
+      padding: 0px 0 20px;
     }
     .methodo-link {
       font-family: var(--font-text); font-size: 13px; font-weight: 400;
@@ -432,13 +455,20 @@
       <img src="assets/ec2027-logo.png" alt="EC2027" class="header-logo">
       <div class="header-title">
         Presidentielle 2027
-        <span>Qui parle d'économie circulaire ?</span>
+        <span>Qui s'engage sur l'économie circulaire ?</span>
       </div>
     </div>
     <div class="countdown" id="countdown">...</div>
   </div>
 
-  <!-- ═══════════════ BAROMETRE ═══════════════ -->
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="nav">
+    <button class="nav-tab active" data-page="barometre">Barometre</button>
+    <button class="nav-tab" data-page="feed">Fil d'actu</button>
+  </nav>
+
+  <!-- ═══════════════ PAGE: BAROMETRE ═══════════════ -->
+  <div class="page active" id="page-barometre">
   <section class="barometre-section">
     <div class="barometre-intro">
       <div class="section-header" style="margin-bottom: 12px;">
@@ -457,7 +487,10 @@
     </div>
   </section>
 
-  <!-- ═══════════════ FEED ═══════════════ -->
+  </div><!-- /page-barometre -->
+
+  <!-- ═══════════════ PAGE: FEED ═══════════════ -->
+  <div class="page" id="page-feed">
   <section class="feed-section">
     <div class="section-header" style="margin-bottom: 16px;">
       <div class="section-title">Fil d'actu</div>
@@ -489,6 +522,7 @@
       </div>
     </div>
   </section>
+  </div><!-- /page-feed -->
 
   <!-- ═══════════════ MODAL ═══════════════ -->
   <div class="modal-overlay" id="modal-overlay">
@@ -539,9 +573,22 @@
   // ── Init ───────────────────────────────────
   document.addEventListener('DOMContentLoaded', async () => {
     startCountdown();
+    setupNav();
     await loadData();
     setupFilters();
   });
+
+  // ── Nav ────────────────────────────────────
+  function setupNav() {
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('page-' + tab.dataset.page).classList.add('active');
+      });
+    });
+  }
 
   // ── Countdown ──────────────────────────────
   function startCountdown() {
