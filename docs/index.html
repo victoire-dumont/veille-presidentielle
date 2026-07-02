@@ -273,6 +273,19 @@
       transition: color var(--dur-base) var(--ease-standard);
     }
     .methodo-link:hover { color: var(--ec-indigo); text-decoration: underline; }
+    .cta-contact {
+      display: inline-block; font-family: var(--font-display); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.02em; font-size: 14px;
+      background: var(--ec-chartreuse); color: var(--ec-charbon);
+      padding: 12px 28px; border-radius: var(--radius-pill); text-decoration: none;
+      transition: all var(--dur-base) var(--ease-out);
+    }
+    .cta-contact:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); text-decoration: none; }
+    .cta-contact--inline {
+      background: var(--ec-indigo); color: #fff; font-size: 12px;
+      padding: 9px 20px; white-space: nowrap;
+    }
+    .cta-contact--inline:hover { background: #4f2be0; }
     .barometre-intro p {
       font-family: var(--font-display); font-weight: 300; font-size: 15px;
       color: var(--text-muted); line-height: 1.4;
@@ -475,9 +488,12 @@
         <div class="section-title">Barometre</div>
         <a href="methodologie.html" class="methodo-link" title="Voir la methodologie et les sources">Methodologie →</a>
       </div>
-      <p>
-        Nombre de mesures programmatiques liees a l'<span class="barometre-keyword">economie circulaire</span> dans le programme de chaque candidat.
-      </p>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <p style="margin: 0;">
+          Nombre de mesures programmatiques liees a l'<span class="barometre-keyword">economie circulaire</span> dans le programme de chaque candidat.
+        </p>
+        <a href="mailto:ec.collectif@gmail.com?subject=Économie circulaire — accompagnement programme" class="cta-contact cta-contact--inline">Besoin d'aide pour votre programme ?</a>
+      </div>
     </div>
     <div id="ranking-container">
       <div class="loading">
@@ -486,7 +502,9 @@
       </div>
     </div>
   </section>
-
+    <div style="text-align: center; padding: 24px 0 8px;">
+      <a href="mailto:ec.collectif@gmail.com?subject=Économie circulaire — accompagnement programme" class="cta-contact">Besoin d'aide pour votre programme ?</a>
+    </div>
   </div><!-- /page-barometre -->
 
   <!-- ═══════════════ PAGE: FEED ═══════════════ -->
