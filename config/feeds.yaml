@@ -27,3 +27,24 @@ feeds:
   - nom: "France Inter"
     url: "https://www.radiofrance.fr/franceinter/rss"
     actif: true
+
+# =============================================================
+# Google Alerts — economie circulaire x candidats
+# =============================================================
+# Pour obtenir l'URL RSS d'une alerte Google :
+# 1. google.com/alerts → creer l'alerte
+# 2. Options → Livraison : Flux RSS
+# 3. Copier l'URL du flux (icone RSS)
+# =============================================================
+
+#  - nom: "Alerte EC — Le Pen"
+#    url: "COLLER_URL_RSS_ICI"
+#    actif: true
+#
+#  - nom: "Alerte EC — Macron"
+#    url: "COLLER_URL_RSS_ICI"
+#    actif: true
+#
+#  - nom: "Alerte EC — Melenchon"
+#    url: "COLLER_URL_RSS_ICI"
+#    actif: true

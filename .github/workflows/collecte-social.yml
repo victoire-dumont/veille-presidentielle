@@ -1,12 +1,13 @@
-name: Collecte RSS
+name: Collecte X/Twitter
 
 on:
   schedule:
-    - cron: "0 * * * *"   # toutes les heures
+    - cron: "0 7 * * *"    # tous les jours a 7h UTC (9h Paris)
+    - cron: "0 18 * * *"   # tous les jours a 18h UTC (20h Paris)
   workflow_dispatch:
 
 jobs:
-  collecte-rss:
+  collecte-social:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,8 +15,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
-      - name: Collecte RSS
+      - name: Collecte X/Twitter via Apify
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-        run: python collect.py
+          APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
+        run: python collect_social.py

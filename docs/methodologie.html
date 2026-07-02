@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodologie — Veille Presidentielle 2027</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    @font-face { font-family: "Space Grotesk"; font-weight: 300; font-style: normal; font-display: swap; src: url("assets/fonts/SpaceGrotesk-Light.ttf") format("truetype"); }
+    @font-face { font-family: "Space Grotesk"; font-weight: 700; font-style: normal; font-display: swap; src: url("assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype"); }
+    @font-face { font-family: "Switzer"; font-weight: 400; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Regular.woff2") format("woff2"); }
+    @font-face { font-family: "Switzer"; font-weight: 600; font-style: normal; font-display: swap; src: url("assets/fonts/Switzer-Semibold.woff2") format("woff2"); }
+
+    :root {
+      --ec-albatre: #f4f4eb; --ec-charbon: #1d1d1d; --ec-gris: #6b6b6b;
+      --ec-white: #ffffff; --ec-indigo: #603aff; --ec-chartreuse: #d0f230;
+      --ec-indigo-soft: #e5deff; --ec-chartreuse-soft: #f2fcc9;
+      --border-subtle: #e3e3d8;
+      --font-display: "Space Grotesk", system-ui, sans-serif;
+      --font-text: "Switzer", system-ui, sans-serif;
+      --radius-lg: 20px; --radius-sm: 10px;
+      --shadow-sm: 0 2px 8px rgba(29,29,29,0.06);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-text); background: var(--ec-albatre);
+      color: var(--ec-charbon); line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--ec-chartreuse); color: var(--ec-charbon); }
+    a { color: var(--ec-indigo); text-underline-offset: 2px; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+    .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.04em; font-size: 12px; color: var(--ec-gris);
+      text-decoration: none; padding: 24px 0 16px;
+    }
+    .back:hover { color: var(--ec-charbon); }
+
+    h1 {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; font-size: 32px; line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-family: var(--font-display); font-weight: 300; font-size: 16px;
+      color: var(--ec-gris); margin-bottom: 32px;
+    }
+
+    h2 {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; font-size: 18px; line-height: 1.1;
+      margin: 32px 0 12px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--ec-charbon);
+    }
+
+    p { margin-bottom: 12px; font-size: 15px; }
+
+    .keyword {
+      display: inline; font-family: var(--font-display); font-weight: 700;
+      background: var(--ec-chartreuse); color: var(--ec-charbon);
+      padding: 1px 6px; border-radius: 4px; font-size: 14px; white-space: nowrap;
+    }
+    .keywords-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 20px; }
+
+    .source-card {
+      background: var(--ec-white); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); padding: 20px; margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    .source-card h3 {
+      font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+      font-size: 15px; letter-spacing: -0.01em; margin-bottom: 4px;
+    }
+    .source-card .parti {
+      font-size: 13px; color: var(--ec-gris); margin-bottom: 8px;
+    }
+    .source-card .url {
+      font-size: 13px; word-break: break-all;
+    }
+    .source-card .statut-np {
+      font-size: 13px; color: var(--ec-gris); font-style: italic;
+    }
+    .source-card .score {
+      display: inline-block; font-family: var(--font-display); font-weight: 700;
+      font-size: 14px; background: var(--ec-indigo-soft); color: var(--ec-indigo);
+      padding: 3px 10px; border-radius: 999px; margin-top: 8px;
+    }
+    .source-card .score-zero {
+      background: #f0f0e5; color: var(--ec-gris);
+    }
+
+    .mesure-list { list-style: none; margin: 12px 0 0; }
+    .mesure-list li {
+      font-size: 13px; color: var(--ec-gris); padding: 6px 0;
+      border-top: 1px solid var(--border-subtle); line-height: 1.45;
+    }
+    .mesure-list li::before {
+      content: "→ "; color: var(--ec-indigo); font-weight: 600;
+    }
+
+    .update {
+      font-size: 13px; color: var(--ec-gris); margin-top: 32px;
+      padding: 16px 0; border-top: 1px solid var(--border-subtle);
+    }
+
+    footer {
+      text-align: center; padding: 24px 0 40px; margin-top: 24px;
+      border-top: 1.5px solid var(--border-subtle);
+      font-size: 12px; color: var(--ec-gris);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="back">← Retour au barometre</a>
+
+  <h1>Methodologie</h1>
+  <p class="subtitle">Comment est construit le barometre economie circulaire</p>
+
+  <h2>Principe</h2>
+  <p>
+    Le barometre compte le nombre de <strong>mesures programmatiques</strong> de chaque candidat
+    en lien direct avec l'economie circulaire. Seuls les programmes officiels publies sont analyses.
+    Les candidats sans programme publie apparaissent avec la mention "programme non publie".
+  </p>
+
+  <h2>Mots-cles recherches</h2>
+  <p>Une mesure est comptabilisee si elle traite directement de l'un de ces sujets :</p>
+  <div class="keywords-list">
+    <span class="keyword">recyclage</span>
+    <span class="keyword">reemploi</span>
+    <span class="keyword">reutilisation</span>
+    <span class="keyword">eco-conception</span>
+    <span class="keyword">obsolescence programmee</span>
+    <span class="keyword">zero dechet</span>
+    <span class="keyword">consigne</span>
+    <span class="keyword">reparation</span>
+    <span class="keyword">durabilite des produits</span>
+    <span class="keyword">compostage</span>
+    <span class="keyword">economie circulaire</span>
+  </div>
+
+  <h2>Sources analysees</h2>
+  <div id="sources-container"></div>
+
+  <div class="update" id="update-date"></div>
+
+  <footer>
+    Veille Presidentielle 2027 &middot; Collecte automatique via RSS
+  </footer>
+</div>
+
+<script>
+  fetch('data/barometre.json')
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('update-date').textContent =
+        `Derniere mise a jour : ${data.derniere_mise_a_jour}`;
+
+      const container = document.getElementById('sources-container');
+      data.candidats
+        .sort((a, b) => (b.mesures_ec || 0) - (a.mesures_ec || 0))
+        .forEach(c => {
+          const card = document.createElement('div');
+          card.className = 'source-card';
+
+          let content = `<h3>${c.nom}</h3><div class="parti">${c.parti}</div>`;
+
+          if (c.programme_statut === 'publié') {
+            content += `<div class="url"><a href="${c.programme_url}" target="_blank" rel="noopener">${c.programme_url}</a></div>`;
+            const scoreClass = c.mesures_ec === 0 ? 'score score-zero' : 'score';
+            content += `<div class="${scoreClass}">${c.mesures_ec} mesure${c.mesures_ec !== 1 ? 's' : ''} economie circulaire${c.total_mesures ? ` / ${c.total_mesures} au total` : ''}</div>`;
+
+            if (c.details && c.details.length > 0) {
+              content += '<ul class="mesure-list">';
+              c.details.forEach(d => { content += `<li>${d}</li>`; });
+              content += '</ul>';
+            }
+          } else {
+            content += '<div class="statut-np">Programme non publie</div>';
+          }
+
+          card.innerHTML = content;
+          container.appendChild(card);
+        });
+    });
+</script>
+
+</body>
+</html>

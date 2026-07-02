@@ -1,0 +1,98 @@
+{
+  "derniere_mise_a_jour": "2026-07-02",
+  "methodologie": "Comptage du nombre de mesures programmatiques en lien direct avec l'économie circulaire : recyclage, réemploi, réutilisation, éco-conception, obsolescence programmée, zéro déchet, consigne, réparation, durabilité des produits, compostage.",
+  "candidats": [
+    {
+      "nom": "Bruno Retailleau",
+      "parti": "Les Républicains",
+      "programme_url": "https://republicains.fr/nos-propositions/",
+      "programme_statut": "publié",
+      "total_mesures": 56,
+      "mesures_ec": 0,
+      "details": []
+    },
+    {
+      "nom": "Edouard Philippe",
+      "parti": "Horizons",
+      "programme_url": null,
+      "programme_statut": "non publié",
+      "total_mesures": null,
+      "mesures_ec": null,
+      "details": []
+    },
+    {
+      "nom": "Emmanuel Macron",
+      "parti": "Renaissance",
+      "programme_url": null,
+      "programme_statut": "non publié",
+      "total_mesures": null,
+      "mesures_ec": null,
+      "details": []
+    },
+    {
+      "nom": "Fabien Roussel",
+      "parti": "PCF",
+      "programme_url": null,
+      "programme_statut": "non publié",
+      "total_mesures": null,
+      "mesures_ec": null,
+      "details": []
+    },
+    {
+      "nom": "François Bayrou",
+      "parti": "Modem",
+      "programme_url": null,
+      "programme_statut": "non publié",
+      "total_mesures": null,
+      "mesures_ec": null,
+      "details": []
+    },
+    {
+      "nom": "Jean-Luc Mélenchon",
+      "parti": "LFI",
+      "programme_url": "https://melenchon2027.fr/programme2025/livre/",
+      "programme_statut": "publié",
+      "total_mesures": null,
+      "mesures_ec": 10,
+      "details": [
+        "Abolir l'obsolescence programmée et allonger les durées de garantie légale des produits",
+        "Interdire les plastiques à usage unique, remettre en place la consigne, rendre obligatoire le recyclage et le compostage, généraliser les filières de réemploi",
+        "Créer un service public de la réparation et du réemploi",
+        "Rendre obligatoire l'écoconception des produits, ouvrir des formations dédiées au low-tech et à l'écoconception",
+        "Généraliser l'indice de durabilité des produits, rendre obligatoire la disponibilité des pièces de rechange",
+        "Faire reculer la publicité dans l'espace public, interdire les prospectus et panneaux numériques",
+        "Interdire la publicité des produits les plus émetteurs de gaz à effet de serre",
+        "Diminuer les possibilités de diffusion de publicité à la télévision",
+        "Créer un réseau national de déchèteries/recyclage",
+        "Interdire les allégations 'neutre en carbone' sur les produits"
+      ]
+    },
+    {
+      "nom": "Jordan Bardella",
+      "parti": "Rassemblement National",
+      "programme_url": null,
+      "programme_statut": "non publié",
+      "total_mesures": null,
+      "mesures_ec": null,
+      "details": []
+    },
+    {
+      "nom": "Marine Tondelier",
+      "parti": "Les Ecologistes",
+      "programme_url": null,
+      "programme_statut": "non publié",
+      "total_mesures": null,
+      "mesures_ec": null,
+      "details": []
+    },
+    {
+      "nom": "Olivier Faure",
+      "parti": "Parti Socialiste",
+      "programme_url": null,
+      "programme_statut": "non publié",
+      "total_mesures": null,
+      "mesures_ec": null,
+      "details": []
+    }
+  ]
+}
